@@ -3,7 +3,12 @@ import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
 import { removeItem,addQuantity,subtractQuantity} from './actions/cartActions'
 import Recipe from './Recipe'
-import Order from './Order'
+import OrderForm from './OrderForm'
+import store from "../store"
+import showResults from "../showResults"
+import { Provider } from "react-redux"
+
+
 class Cart extends Component{
 
     //to remove the item completely
@@ -40,11 +45,11 @@ class Cart extends Component{
 
 
                                         <div className="add-remove">
-                                            <Link to="/cart"><i className="material-icons" onClick={()=>{this.handleAddQuantity(item.id)}}>add</i></Link>
+                                            <Link to="/cart"><i className="material-icons icon" onClick={()=>{this.handleAddQuantity(item.id)}}>add</i></Link>
                                             <p>
-                                                <b>{item.quantity}</b>
+                                                <b className="quantity-product">{item.quantity}</b>
                                             </p>
-                                            <Link to="/cart"><i className="material-icons" onClick={()=>{this.handleSubtractQuantity(item.id)}}>remove</i></Link>
+                                            <Link to="/cart"><i className="material-icons icon" onClick={()=>{this.handleSubtractQuantity(item.id)}}>remove</i></Link>
                                         </div>
                                          </div>
                                     
@@ -59,14 +64,16 @@ class Cart extends Component{
              )
        return(
             <div className="container">
+                <h5>You have ordered:</h5>
                 <div className="cart">
-                    <h5>You have ordered:</h5>
-                    <ul className="collection">
+                    <div className="collection list-order">
                         {addedItems}
-                    </ul>
+                    </div>
+                    <Provider store={store}>
+                        <OrderForm onSubmit={showResults} />
+                    </Provider>
                 </div> 
                 <Recipe />
-                <Order />
             </div>
        )
     }
@@ -86,4 +93,6 @@ const mapDispatchToProps = (dispatch)=>{
         subtractQuantity: (id)=>{dispatch(subtractQuantity(id))}
     }
 }
+
+
 export default connect(mapStateToProps,mapDispatchToProps)(Cart)

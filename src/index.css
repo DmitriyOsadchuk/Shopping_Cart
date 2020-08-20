@@ -19,6 +19,8 @@
 }
 .cart{
     margin-top:40px;
+    display: flex;
+    justify-content: space-between;
 }
 .collection .collection-item{
     display: flex;
@@ -38,14 +40,39 @@
 .item-desc{
     align-self:center;
     display: flex;
+    justify-content: space-between;
+    width: 100%;
 }
 .add-remove {
     display: flex;
     align-items: center;
 }
+.icon {
+    background: #dfdcdc;
+    color: #000;
+    font-size: 25px;
+}
+.quantity-product {
+    font-size: 21px;
+    margin: 10px;
+}
 .btn-buy {
     width: 100%;
     top: 10px;
+}
+.list-order {
+    width: 70%;
+}
+.form-group {
+    width: 28%;
+}
+.form-order {
+    border: 1px solid #e0e0e0;
+    padding: 15px;
+    margin-top: 8px;
+}
+.btn-order {
+    width: 100%;
 }
 
 @media (max-width: 710px) {
