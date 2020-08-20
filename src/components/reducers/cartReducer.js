@@ -20,7 +20,7 @@ const initState = {
     total: 0
 
 }
-const cartReducer= (state = initState,action)=>{
+export const cartReducer= (state = initState,action)=>{
    
     //INSIDE HOME COMPONENT
     if(action.type === ADD_TO_CART){

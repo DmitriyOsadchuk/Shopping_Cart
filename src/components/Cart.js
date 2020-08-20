@@ -24,45 +24,45 @@ class Cart extends Component{
         this.props.subtractQuantity(id);
     }
     render(){
-              
+
         let addedItems = this.props.items.length ?
-            (  
+            (
                 this.props.items.map(item=>{
                     return(
-                       
+
                         <li className="collection-item avatar" key={item.id}>
-                                    <div className="item-img"> 
-                                        <img src={item.img} alt={item.img} className=""/>
-                                    </div>
-                                
-                                    <div className="item-desc">
-                                        <div className="item-info">
-                                            <span className="title">{item.title}</span>
-                                            <p>{item.desc}</p>
-                                            <p><b>Price: {item.price}$</b></p>
-                                            <button className="waves-effect waves-light btn pink remove" onClick={()=>{this.handleRemove(item.id)}}>Remove</button>
-                                        </div>
+                            <div className="item-img">
+                                <img src={item.img} alt={item.img} className=""/>
+                            </div>
+
+                            <div className="item-desc">
+                                <div className="item-info">
+                                    <span className="title">{item.title}</span>
+                                    <p>{item.desc}</p>
+                                    <p><b>Price: {item.price}$</b></p>
+                                    <button className="waves-effect waves-light btn pink remove" onClick={()=>{this.handleRemove(item.id)}}>Remove</button>
+                                </div>
 
 
-                                        <div className="add-remove">
-                                            <Link to="/cart"><i className="material-icons icon" onClick={()=>{this.handleAddQuantity(item.id)}}>add</i></Link>
-                                            <p>
-                                                <b className="quantity-product">{item.quantity}</b>
-                                            </p>
-                                            <Link to="/cart"><i className="material-icons icon" onClick={()=>{this.handleSubtractQuantity(item.id)}}>remove</i></Link>
-                                        </div>
-                                         </div>
-                                    
-                                </li>
-                         
+                                <div className="add-remove">
+                                    <Link to="/cart"><i className="material-icons icon" onClick={()=>{this.handleAddQuantity(item.id)}}>add</i></Link>
+                                    <p>
+                                        <b className="quantity-product">{item.quantity}</b>
+                                    </p>
+                                    <Link to="/cart"><i className="material-icons icon" onClick={()=>{this.handleSubtractQuantity(item.id)}}>remove</i></Link>
+                                </div>
+                            </div>
+
+                        </li>
+
                     )
                 })
             ):
 
-             (
+            (
                 <p>Nothing.</p>
-             )
-       return(
+            )
+        return(
             <div className="container">
                 <h5>You have ordered:</h5>
                 <div className="cart">
@@ -72,10 +72,10 @@ class Cart extends Component{
                     <Provider store={store}>
                         <OrderForm onSubmit={showResults} />
                     </Provider>
-                </div> 
+                </div>
                 <Recipe />
             </div>
-       )
+        )
     }
 }
 

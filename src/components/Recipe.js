@@ -27,7 +27,7 @@ class Recipe extends Component{
                             <span>Shipping(+6$)</span>
                         </label>
                     </li>
-                    <li className="collection-item"><b>Total: {this.props.total} $</b></li>
+                    <li className="collection-item"><b>TOTAL: {this.props.total} $</b></li>
                 </div>
 
         )

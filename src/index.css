@@ -21,6 +21,7 @@
     margin-top:40px;
     display: flex;
     justify-content: space-between;
+    flex-direction: row;
 }
 .collection .collection-item{
     display: flex;
@@ -74,10 +75,24 @@
 .btn-order {
     width: 100%;
 }
+@media (max-width: 500px) {
+    .collection-item {
+        flex-direction: column;
+    }
+}
 
 @media (max-width: 710px) {
     .box {
         justify-content: center;
+    }
+    .go-shop, .go-cart {
+        display: none;
+    }
+    .cart {
+        flex-direction: column;
+    }
+    .form-group, .list-order {
+        width: 100%;
     }
 }
 @media (max-width: 1440px) {
